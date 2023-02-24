@@ -19,31 +19,35 @@
                 Calculadora
             </h1>
 
-            <p id="resultado"> yeyye</p>
+            <p id="resultado"></p>
                 <table>
 
 <!-- Linha 1 -->
                     <tr>
                         <td>
-                            <button class="botao">
+                            <button class="botao"
+                            onclick="Limpar()">
                                 Limpar
                             </button>
                         </td>
 
                         <td>
-                            <button class="botao">
+                            <button class="botao"
+                            onclick="Apagar()">
                                 Apagar
                             </button>
                         </td>
 
                         <td>
-                            <button class="botao">
+                            <button class="botao"
+                            onclick="insert('/')">
                                 /
                             </button>
                         </td>
 
                         <td>
-                            <button class="botao">
+                            <button class="botao"
+                            onclick="insert('X')">
                                 X
                             </button>
                         </td>
@@ -52,25 +56,29 @@
 <!-- Linha 2 -->
                     <tr>
                         <td>
-                            <button class="botao">
+                            <button class="botao"
+                            onclick="insert('7')">
                                 7
                             </button>
                         </td>
 
                         <td>
-                            <button class="botao">
+                            <button class="botao"
+                            onclick="insert('8')">
                                 8
                             </button>
                         </td>
 
                         <td>
-                            <button class="botao">
+                            <button class="botao"
+                            onclick="insert('9')">
                                 9
                             </button>
                         </td>
 
                         <td>
-                            <button class="botao">
+                            <button class="botao"
+                            onclick="insert('-')">
                                 -
                             </button>
                         </td>
@@ -81,25 +89,29 @@
 
                     <tr>
                         <td>
-                            <button class="botao">
+                            <button class="botao"
+                            onclick="insert('4')">
                                 4
                             </button>
                         </td>
 
                         <td>
-                            <button class="botao">
+                            <button class="botao"
+                            onclick="insert('5')">
                                 5
                             </button>
                         </td>
 
                         <td>
-                            <button class="botao">
+                            <button class="botao"
+                            onclick="insert('6')">
                                 6
                             </button>
                         </td>
 
                         <td>
-                            <button class="botao">
+                            <button class="botao"
+                            onclick="insert('+')">
                                 +
                             </button>
                         </td>
@@ -109,26 +121,30 @@
 
                     <tr>
                         <td>
-                            <button class="botao">
+                            <button class="botao"
+                            onclick="insert('1')">
                                 1
                             </button>
                         </td>
 
                         <td>
-                            <button class="botao">
+                            <button class="botao"
+                            onclick="insert('2')">
                                 2
                             </button>
                         </td>
 
                         <td>
-                            <button class="botao">
+                            <button class="botao"
+                            onclick="insert('3')">
                                 3
                             </button>
                         </td>
 
                         <td rowspan="2">
                             <button class="botao" 
-                            style="height: 106px;">
+                            style="height: 106px;"
+                            onclick="Calcular()">
                                 =
                             </button>
                         </td>
@@ -140,13 +156,15 @@
                     <tr>
                         <td colspan="2">
                             <button class="botao"
-                            style="width: 106px;">
+                            style="width: 106px;"
+                            onclick="insert('0')">
                                 0
                             </button>
                         </td>
 
                         <td>
-                            <button class="botao">
+                            <button class="botao"
+                            onclick="insert('.')">
                                 .
                             </button>
                         </td>
@@ -158,6 +176,33 @@
             
         </div>
     </div>
-    
+    <script>
+        function insert(numero)
+        {
+           var num = document.getElementById('resultado').innerHTML;
+           document.getElementById('resultado').innerHTML = num + numero;
+        }
+
+        function Limpar(){
+         document.getElementById('resultado').innerHTML = "";   
+        }
+
+        function Apagar(){
+
+           var resultado = document.getElementById('resultado').innerHTML;
+
+           document.getElementById('resultado').innerHTML = resultado.substring(0, resultado.length -1);
+        }
+
+        function Calcular(){ 
+            var resultado = document.getElementById('resultado').innerHTML;
+            
+            if (resultado) {
+                document.getElementById('resultado').innerHTML = eval(resultado);
+            } else {
+                document.getElementById('resultado').innerHTML = "vazio"
+            }
+        }
+    </script>
 </body>
 </html>
